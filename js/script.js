@@ -3,16 +3,35 @@
 // Return false otherwise
 
 // Input:
-const s = 'anagra';
-const t = 'nagara';
+const s = 'anagram';
+const t = 'nagaram';
 
 // Output: true
 
 const validAnagram = (str1, str2) => {
-  const s = str1.split('').sort().join();
-  const t = str2.split('').sort().join();
+  if(str1.length !== str2.length) {
+    return false;
+  }
 
-  return s === t
+  const arr = str2.split("");
+
+  for(let i = 0; i < str1.length; i++) {
+    let foundIndex = -1;
+
+    for(let j = 0; j < arr.length; j++) {
+      if(str1[i] === arr[j]) {
+        foundIndex = j
+        break;
+      } 
+    }
+
+    if(foundIndex === -1) {
+      return false;
+    }
+
+    arr.splice(foundIndex, 1);
+  }
+  return true;
 }
 
 console.log(validAnagram(s, t));
