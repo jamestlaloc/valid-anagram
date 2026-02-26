@@ -41,4 +41,14 @@ const validAnagram = (str1, str2) => {
   return true;
 }
 
+function validAnagram(s, t) {
+  if(s.length !== t.length) {
+    return false;
+  }
+
+  const count = {};
+
+  
+}
+
 console.log(validAnagram(s, t));
